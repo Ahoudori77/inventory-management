@@ -1,8 +1,12 @@
 import axios from 'axios';
 
+const token = localStorage.getItem('token');
+
 const api = axios.create({
-  baseURL: 'http://localhost:3000',  // Rails APIのベースURL
-  withCredentials: true,             // 認証情報のCookieを自動で送信
+  baseURL: 'http://localhost:3001',
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
 });
 
 export default api;
